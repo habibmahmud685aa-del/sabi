@@ -1,10 +1,5 @@
-import sys
 import os
 from pathlib import Path
-
-# Ensure the project root is in sys.path so 'services' package is found
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
 from flask import Flask, request, jsonify, send_from_directory
 
 try:
@@ -13,8 +8,8 @@ try:
 except ImportError:
     pass
 
-from services.cbt_engine import load_exercises, cbt_reply
-from services.db import init_db, save_message, save_mood, get_chat_history, get_dynamics
+from cbt_engine import load_exercises, cbt_reply
+from db import init_db, save_message, save_mood, get_chat_history, get_dynamics
 
 APP_ROOT = Path(__file__).resolve().parent
 DATA_PATH = APP_ROOT / "data" / "exercises.json"
