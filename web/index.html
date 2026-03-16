@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Саби — MVP (Clean)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo-dot"></div>
+        <div>
+          <div class="title">Саби</div>
+          <div class="subtitle">КПТ-движок • MVP</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="tab active" data-view="chat">Чат</button>
+        <button class="tab" data-view="profile">Портрет</button>
+        <button class="tab" data-view="dynamics">Динамика</button>
+        <button class="tab" data-view="exercises">Упражнения</button>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section id="view-chat" class="view active">
+        <div class="chat" id="chat">
+          <div class="msg sabi">
+            <div class="bubble">
+              Привет. Я Саби. Я не врач и не замена терапии, но могу поддержать и помочь разобраться.
+              Напиши, что сейчас происходит.
+            </div>
+          </div>
+        </div>
+
+        <footer class="composer">
+          <textarea id="input" rows="1" placeholder="Напишите сообщение... (Enter для отправки)"></textarea>
+          <button id="send" title="Отправить">
+            <svg viewBox="0 0 24 24" fill="none" class="send-icon"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/></svg>
+          </button>
+        </footer>
+      </section>
+
+      <section id="view-profile" class="view">
+        <div class="placeholder profile-container">
+          <h2>Твоё состояние</h2>
+          <p>Отметь, как ты себя чувствуешь сейчас. Это поможет боту понимать тебя лучше.</p>
+          <div class="slider-group">
+            <div class="slider-header">
+              <label>Тревога</label>
+              <span id="anxiety-val">0</span>
+            </div>
+            <input type="range" id="slider-anxiety" min="0" max="10" value="0">
+          </div>
+          <div class="slider-group">
+            <div class="slider-header">
+              <label>Стресс</label>
+              <span id="stress-val">0</span>
+            </div>
+            <input type="range" id="slider-stress" min="0" max="10" value="0">
+          </div>
+          <div class="slider-group">
+            <div class="slider-header">
+              <label>Настроение</label>
+              <span id="mood-val">5</span>
+            </div>
+            <input type="range" id="slider-mood" min="0" max="10" value="5">
+          </div>
+        </div>
+      </section>
+
+      <section id="view-dynamics" class="view">
+        <div class="dynamics-container placeholder">
+          <h2>Динамика состояний</h2>
+          <p>История твоих отметок (уровень тревоги, стресса и настроения).</p>
+          <div id="dynamics-list" class="dynamics-list">
+             Пока нет данных...
+          </div>
+        </div>
+      </section>
+
+      <section id="view-exercises" class="view">
+        <div class="exercises-container" id="exercises-list">
+          <div class="placeholder">
+            <h2>Упражнения</h2>
+            <p>Загрузка библиотеки...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="hint">
+      Дисклеймер: это инструмент поддержки и саморазвития, не медицинская помощь.
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
